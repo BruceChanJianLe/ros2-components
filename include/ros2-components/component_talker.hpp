@@ -22,6 +22,7 @@ namespace component
         size_t count_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
         rclcpp::TimerBase::SharedPtr timer_;
+        int param1, param2;
     };
 
 } // namespace component

@@ -9,7 +9,13 @@ namespace component
     component_talker::component_talker(const rclcpp::NodeOptions & options)
     : rclcpp::Node("component_talker_node", options)
     , count_(0)
+    , param1(0)
+    , param2(0)
     {
+        // Declare params
+        this->declare_parameter<int>("param1", 0);
+        this->declare_parameter<int>("param2", 0);
+
         pub_ = this->create_publisher<std_msgs::msg::String>("component_talker/says", 1);
         timer_ = this->create_wall_timer(std::chrono::seconds (1), [this](){this->on_timer();});
     }
@@ -27,8 +33,21 @@ namespace component
             this->get_name()
             << ": "
             << msg->data
+            << "\nparam1 "
+            << param1
+            << ", param2 "
+            << param2
         );
 
         pub_->publish(std::move(msg));
+
+        // Display params
+        if(this->get_parameter("param1", param1))
+            RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Succesfully obtained param1!");
+        else
+            RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Succesfully obtained param1!");
+
+        this->get_parameter("param2", param2);
+
     }
 } // namespace component
