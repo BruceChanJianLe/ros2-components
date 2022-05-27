@@ -1,0 +1,5 @@
+# https://github.com/ros2/launch_ros/issues/156
+# launch_component_talker_node:
+#   ros__parameters:
+    param1: 123
+    param2: 88
