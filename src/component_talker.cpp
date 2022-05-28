@@ -42,11 +42,7 @@ namespace component
         pub_->publish(std::move(msg));
 
         // Display params
-        if(this->get_parameter("param1", param1))
-            RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Succesfully obtained param1!");
-        else
-            RCLCPP_INFO_STREAM_ONCE(this->get_logger(), "Succesfully obtained param1!");
-
+        this->get_parameter("param1", param1);
         this->get_parameter("param2", param2);
 
     }
