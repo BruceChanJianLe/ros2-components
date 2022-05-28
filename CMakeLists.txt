@@ -21,6 +21,8 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
 
+find_package(rclcpp_lifecycle REQUIRED)
+
 include_directories(include)
 
 # BUILD
@@ -54,10 +56,27 @@ rclcpp_components_register_node(component_listener
  EXECUTABLE component_listener_node
 )
 
+# Add lifecycle talker component
+add_library(lifecycle_component_talker
+  SHARED
+  src/lifecycle_component_talker.cpp
+)
+ament_target_dependencies(lifecycle_component_talker
+  rclcpp
+  rclcpp_components
+  rclcpp_lifecycle
+  std_msgs
+)
+rclcpp_components_register_node(lifecycle_component_talker
+ PLUGIN "lifecycle_component::component_talker"
+ EXECUTABLE lifecycle_component_talker_node
+)
+
 # INSTALL
 install(TARGETS
   component_talker
   component_listener
+  lifecycle_component_talker
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
