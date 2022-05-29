@@ -86,6 +86,10 @@ install(DIRECTORY
   config
   DESTINATION share/${PROJECT_NAME}
 )
+install(PROGRAMS
+  tmux/start_lifecycle_demo.bash
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 # TEST
 if(BUILD_TESTING)
