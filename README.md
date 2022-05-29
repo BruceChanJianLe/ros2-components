@@ -47,6 +47,11 @@ Unloading component from component manager
 ros2 component unload /ComponentManager 1
 ```
 
+Running tmux script
+```bash
+ros2 run ros2-component start_lifecycle_demo.bash -w /your/path/to/workspace
+```
+
 
 ## Reference
  - [ROSCON_Video](https://vimeo.com/378916125)
