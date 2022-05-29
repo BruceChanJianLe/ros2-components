@@ -7,7 +7,7 @@ RCLCPP_COMPONENTS_REGISTER_NODE(lifecycle_component::component_talker)
 namespace lifecycle_component
 {
     component_talker::component_talker(const rclcpp::NodeOptions & options)
-    : rclcpp_lifecycle::LifecycleNode("component_talker_node", options)
+    : rclcpp_lifecycle::LifecycleNode("lifecycle_component_talker_node", options)
     , count_(0)
     , param1(0)
     , param2(0)
