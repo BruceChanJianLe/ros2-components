@@ -56,3 +56,4 @@ ros2 run ros2-component start_lifecycle_demo.bash -w /your/path/to/workspace
 ## Reference
  - [ROSCON_Video](https://vimeo.com/378916125)
  - [foxy_tutorial](https://docs.ros.org/en/foxy/Tutorials/Composition.html)
+ - [article](https://medium.com/@nullbyte.in/ros2-from-the-ground-up-part-4-building-robust-robotics-systems-with-ros2-composition-209ed023d8e5)
